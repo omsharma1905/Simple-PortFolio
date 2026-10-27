@@ -27,7 +27,7 @@ export const projects: Project[] = [
       "A data visualization platform that transforms raw business data into meaningful visualizations, with support for multiple data formats, automatic data profiling, visualization recommendations, and interactive charts.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "ECharts"],
     status: "Active",
-    demoUrl: "#",
+    demoUrl: "https://vizpilot-v1.vercel.app/",
     githubUrl: "https://github.com/omsharma1905/VizPilot",
     accent: "blue",
   },
