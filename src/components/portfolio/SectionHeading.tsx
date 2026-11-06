@@ -6,10 +6,12 @@ export function SectionHeading({
   eyebrow,
   title,
   accent,
+  as: Component = "h2",
 }: {
   eyebrow?: string;
   title: string;
   accent: AccentKey;
+  as?: "h1" | "h2";
 }) {
   const a = accentClasses[accent];
   return (
@@ -22,7 +24,7 @@ export function SectionHeading({
           </span>
         </div>
       ) : null}
-      <h2 className="text-fluid-h2 font-display font-semibold text-foreground">{title}</h2>
+      <Component className="text-fluid-h2 font-display font-semibold text-foreground">{title}</Component>
     </Reveal>
   );
 }

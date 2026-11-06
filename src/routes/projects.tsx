@@ -8,23 +8,90 @@ import { SectionHeading } from "@/components/portfolio/SectionHeading";
 import { Reveal } from "@/components/portfolio/Reveal";
 import { ProjectIndex } from "@/components/portfolio/ProjectIndex";
 import { SideProjects } from "@/components/portfolio/SideProjects";
+import { projects } from "@/lib/portfolio-data";
+
+const projectsJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://omsharma.in/projects#collectionpage",
+      "url": "https://omsharma.in/projects",
+      "name": "Projects by Om Sharma | Software Development & AI Projects",
+      "description":
+        "Explore software development projects by Om Sharma, including AI-powered applications, data visualization platforms, intelligent automation, and full-stack products.",
+      "inLanguage": "en-IN",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Featured Software Development Projects",
+        "itemListElement": projects.map((p, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "SoftwareApplication",
+            name: p.name,
+            applicationCategory:
+              p.name === "VizPilot"
+                ? "BusinessApplication"
+                : p.name === "CampusFix"
+                  ? "BusinessApplication"
+                  : "TravelApplication",
+            description: p.description,
+            ...(p.demoUrl && p.demoUrl !== "#" ? { url: p.demoUrl } : {}),
+            ...(p.githubUrl ? { codeRepository: p.githubUrl } : {}),
+            author: {
+              "@id": "https://omsharma.in/#person",
+            },
+          },
+        })),
+      },
+    },
+  ],
+};
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Om Sharma" },
+      {
+        title: "Projects by Om Sharma | Software Development & AI Projects",
+      },
       {
         name: "description",
         content:
-          "A collection of products Om Sharma has built using modern web technologies — React, Node.js, MongoDB, and TypeScript.",
+          "Explore software development projects by Om Sharma, including AI-powered applications, data visualization platforms, intelligent automation, and full-stack products.",
       },
-      { property: "og:title", content: "Projects — Om Sharma" },
+      {
+        property: "og:title",
+        content: "Projects by Om Sharma | Software Development & AI Projects",
+      },
       {
         property: "og:description",
-        content: "Selected work by Om Sharma — Full Stack Developer.",
+        content:
+          "Explore software development projects by Om Sharma, including AI-powered applications, data visualization platforms, intelligent automation, and full-stack products.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://omsharma.in/projects" },
+      { property: "og:site_name", content: "Om Sharma" },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Projects by Om Sharma | Software Development & AI Projects",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Explore software development projects by Om Sharma, including AI-powered applications, data visualization platforms, intelligent automation, and full-stack products.",
+      },
+      { name: "twitter:creator", content: "@bugdev01" },
+      { name: "twitter:site", content: "@bugdev01" },
+    ],
+    links: [{ rel: "canonical", href: "https://omsharma.in/projects" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(projectsJsonLd),
+      },
     ],
   }),
   component: ProjectsPage,
@@ -45,6 +112,7 @@ function ProjectsPage() {
             >
               <Link
                 to="/"
+                aria-label="Back to Om Sharma Portfolio Homepage"
                 className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 <ArrowLeft
@@ -55,7 +123,7 @@ function ProjectsPage() {
               </Link>
             </motion.div>
 
-            <SectionHeading eyebrow="Selected Work" title="Projects." accent="pink" />
+            <SectionHeading as="h1" eyebrow="Selected Work" title="Projects." accent="pink" />
             <Reveal>
               <p className="text-fluid-lead max-w-2xl text-muted-foreground">
                 A few things I&apos;ve built, broken, rebuilt, and learned from.

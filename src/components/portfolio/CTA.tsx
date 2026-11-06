@@ -25,6 +25,7 @@ export function CTA() {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Connect with Om Sharma on LinkedIn"
               className="story-link cursor-pointer text-link transition-colors hover:text-link-hover"
             >
               LinkedIn
@@ -34,6 +35,7 @@ export function CTA() {
               href={contact.twitter}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Connect with Om Sharma on X"
               className="story-link cursor-pointer text-link transition-colors hover:text-link-hover"
             >
               X

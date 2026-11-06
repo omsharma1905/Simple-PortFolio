@@ -12,12 +12,12 @@ export function Footer() {
               href="https://amritwt.me/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Amrit Rai's portfolio website"
               className="inline-block align-baseline underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
               Amrit Rai
             </a>
           </p>
-
         </div>
       </div>
     </footer>

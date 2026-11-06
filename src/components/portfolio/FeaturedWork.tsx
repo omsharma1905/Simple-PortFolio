@@ -18,6 +18,7 @@ export function FeaturedWork() {
           <div className="mt-6">
             <Link
               to="/projects"
+              aria-label="View all software development projects by Om Sharma"
               className="btn-fluid group inline-flex items-center justify-center gap-2 rounded-full bg-foreground font-medium text-background transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40"
             >
               View All Projects

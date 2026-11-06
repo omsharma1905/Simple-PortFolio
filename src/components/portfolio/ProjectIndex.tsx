@@ -1,4 +1,3 @@
-
 import { useState, useId } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
@@ -188,24 +187,30 @@ export function ProjectIndex() {
                         </Block>
 
                         <div className="mt-7 flex flex-wrap items-center gap-5">
-                          <a
-                            href={p.demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="link-underline inline-flex items-center gap-1.5 text-sm font-medium text-foreground"
-                          >
-                            Live Demo <ArrowUpRight size={14} />
-                          </a>
+                          {p.demoUrl && p.demoUrl !== "#" ? (
+                            <a
+                              href={p.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`View live demo of ${p.name}`}
+                              className="link-underline inline-flex items-center gap-1.5 text-sm font-medium text-foreground"
+                            >
+                              Live Demo <ArrowUpRight size={14} />
+                            </a>
+                          ) : null}
 
-                          <a
-                            href={p.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="link-underline inline-flex items-center gap-1.5 text-sm font-medium text-foreground"
-                          >
-                            <Github size={14} />
-                            Source Code
-                          </a>
+                          {p.githubUrl ? (
+                            <a
+                              href={p.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`View source code of ${p.name} on GitHub`}
+                              className="link-underline inline-flex items-center gap-1.5 text-sm font-medium text-foreground"
+                            >
+                              <Github size={14} />
+                              Source Code
+                            </a>
+                          ) : null}
                         </div>
                       </div>
                     </div>

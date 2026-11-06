@@ -29,6 +29,7 @@ export function Experience() {
                 href="https://www.prepstat.in/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit PrepStat website (opens in new tab)"
                 className="group inline-flex items-center gap-1 text-fluid-h3 font-display font-semibold text-foreground"
               >
                 PREPSTAT

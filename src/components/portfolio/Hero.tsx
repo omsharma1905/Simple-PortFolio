@@ -63,6 +63,7 @@ export function Hero() {
             >
               <Link
                 to="/projects"
+                aria-label="View Om Sharma's Projects"
                 className="btn-fluid group inline-flex items-center justify-center gap-2 rounded-full bg-foreground font-medium text-background transition-transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 View Projects
@@ -74,6 +75,8 @@ export function Hero() {
               <a
                 href={contact.resume}
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Om Sharma's Resume in PDF format"
                 className="btn-fluid inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface font-medium text-foreground transition-colors hover:bg-muted"
               >
                 <Download size={15} /> Download Resume
@@ -81,8 +84,8 @@ export function Hero() {
               <a
                 href={contact.github}
                 target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub profile"
+                rel="noopener noreferrer"
+                aria-label="Om Sharma's GitHub profile"
                 className="btn-fluid inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface font-medium text-foreground transition-colors hover:bg-muted"
               >
                 <Github size={15} /> GitHub
